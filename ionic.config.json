@@ -1,0 +1,8 @@
+{
+  "name": "GanpatiWalla",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite",
+  "id": "aa20913b"
+}
