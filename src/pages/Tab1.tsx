@@ -1,22 +1,30 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonModal, IonButtons, IonTitle, IonButton, IonItem, IonInput } from '@ionic/react';
 import './Tab1.css';
+import ProductListing from './ProductListing';
+import products from './products.json';
+
 
 const Tab1: React.FC = () => {
+  
+
+  // const getProducts = async () => {
+  //    await axios.get("http://localhost:3002/products").then(response => {
+  //     setIdols(response.data)
+  //     }).catch(error => {
+  //       console.error(error);
+  //     })
+  // }
+  
+  
+  const productsActive = products.products.filter((e) => e.status === "active");
+
+    
+
+
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Tab 1</IonTitle>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Tab 1 page" />
+          <ProductListing products={productsActive} />
       </IonContent>
     </IonPage>
   );
