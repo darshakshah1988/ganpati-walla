@@ -4,13 +4,17 @@ import './home.css';
 import { addCircleOutline } from 'ionicons/icons';
 import './vdashboard.css';
 const VDashboard: React.FC = () => {
+
+  const counts = {
+    "USER_POSTED_PHOTOS": 4,
+    "USER_PLAN_PHOTOS_LIMIT":10,
+    "USER_PLAN_NAME": "BASIC" 
+  }
   return (
     <>
     <IonPage>
       <header>
-          
-        Ganpatiwalla.com &nbsp;&nbsp;
-        
+        Ganpatiwalla.com &nbsp;&nbsp;        
       </header>
 
       
@@ -19,22 +23,22 @@ const VDashboard: React.FC = () => {
 
             <div className="reminders">
             <div className="halfWidth">
-                <div className="todo"><i className="fa fa-book"></i><span>4</span>
-                <p>classNamees today</p>
+                <div className="todo"><i className="fa fa-book"></i><span>{counts.USER_POSTED_PHOTOS}</span>
+                <p>Current Photos</p>
                 <div className="line"></div>
-                <h4>VIEW</h4>
+                <h4><a href="/agent-photos">VIEW</a></h4>
                 </div>
-                <div className="todo"><i className="fa fa-files-o"></i><span>2</span>
-                <p>Assignments due</p>
+                <div className="todo"><i className="fa fa-files-o"></i><span>{counts.USER_PLAN_PHOTOS_LIMIT}</span>
+                <p>Plan Limit</p>
                 <div className="line"></div>
-                <h4>VIEW</h4>
+                <h4><a href="/plans">Upgrade</a></h4>
                 </div>
             </div>
             <div className="fullWidth">
-                <div className="todo"><i className="fa fa-clock-o"></i><span>6</span>
-                <p>To do items</p>
+                <div className="todo"><i className="fa fa-clock-o"></i><span>{counts.USER_PLAN_NAME}</span>
+                <p>Plan</p>
                 <div className="line"></div>
-                <h4>VIEW</h4>
+                <h4><a href="/agent-profile">VIEW</a></h4>
                 </div>
             </div>
             </div>

@@ -38,7 +38,7 @@ const Dashboard: React.FC = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('https://ganpati-node-service.onrender.com/products?limit=10&vendor=Ganpatiwala.com&random=true');
+          const response = await axios.get(process.env.SERVER_URL+'/products?limit=10&vendor=Ganpatiwala.com&random=true');
           setScroller1(response.data.products);
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -47,7 +47,7 @@ const Dashboard: React.FC = () => {
 
       const fetchData1 = async () => {
         try {
-          const response = await axios.get('https://ganpati-node-service.onrender.com/products?limit=10&vendor=Ganpatiwala.com&tags=Chaturbhuj&random=true');
+          const response = await axios.get(process.env.SERVER_URL+'/products?limit=10&vendor=Ganpatiwala.com&tags=Chaturbhuj&random=true');
           setScroller2(response.data.products);
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -56,7 +56,7 @@ const Dashboard: React.FC = () => {
 
       const fetchData2 = async () => {
         try {
-          const response = await axios.get('https://ganpati-node-service.onrender.com/decorations?limit=3&random=true');
+          const response = await axios.get(process.env.SERVER_URL+'/decorations?limit=3&random=true');
           setScroller3(response.data.decorations);
         } catch (error) {
           console.error('Error fetching data:', error);

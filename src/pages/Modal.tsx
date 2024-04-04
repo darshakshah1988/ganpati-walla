@@ -24,7 +24,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, productName }) => {
     {
     try {
         // Make an API call to submit the form data
-        const response = await axios.post('https://ganpati-node-service.onrender.com/idolsQuery', {
+        const response = await axios.post(process.env.SERVER_URL+'/idolsQuery', {
           productName,
           name,
           message

@@ -40,7 +40,9 @@ import './style.css';
 import { Network } from '@capacitor/network';
 import { useEffect, useState, useRef } from 'react';
 import VDashboard from './pages/VDashboard'
-import Vhome from './pages/Vhome';
+import Vphotos from './pages/Vphotos';
+import Vprofile from './pages/Vprofile';
+import Plans from './pages/Plans';
 
 setupIonicReact();
 
@@ -51,10 +53,13 @@ const App: React.FC = () => {
     <IonReactRouter>
         <IonRouterOutlet>
           <Route exact path="/login" component={Login} />
-          <Route exact path="/vendor/login" component={Vlogin} />
+          <Route exact path="/vendor-login" component={Vlogin} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/" render={() => <Redirect to="/login" />} />
-          <Route exact path="/agent-home" component={Vhome} />
+          <Route exact path="/agent-home" component={VDashboard} />
+          <Route exact path="/agent-photos" component={Vphotos} />
+          <Route exact path="/agent-profile" component={Vprofile} />
+          <Route exact path="/plans" component={Plans} />
         </IonRouterOutlet>
       </IonReactRouter>    
   </IonApp>

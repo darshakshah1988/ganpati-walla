@@ -48,7 +48,7 @@ const Login: React.FC = () => {
         }
         else
         {
-            const checkLogin = await axios.post('https://ganpati-node-service.onrender.com/login',{'username': username, 'password': password});
+            const checkLogin = await axios.post(process.env.SERVER_URL+'/login',{'username': username, 'password': password});
             if(checkLogin.data.data.active)
             {
                 //window.localStorage.setItem("Login", true);
