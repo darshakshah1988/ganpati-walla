@@ -47,7 +47,7 @@ const ProductListing = ({ products }) => {
             {products.map((product) => (
                 <ProductList key={product.id} product={product} onButtonClick={() => handleButtonClick(product.title)} />
             ))}
-            <Modal isOpen={modalOpen} onClose={closeModal} productName={selectedProduct} />
+            <Modal isOpen={modalOpen} onClose={closeModal} productName={selectedProduct} vendorName ={"vendorName"} />
         </div>
     )
 }

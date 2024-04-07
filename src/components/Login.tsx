@@ -12,6 +12,9 @@ import Offline from '../pages/Offline';
 
 
 const Login: React.FC = () => {
+
+    const baseUrl = "http://localhost:5001";
+    // const baseUrl = "https://ganpati-node-service.onrender.com";
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [online, setOnline] = useState(true);
@@ -48,11 +51,13 @@ const Login: React.FC = () => {
         }
         else
         {
-            const checkLogin = await axios.post(process.env.SERVER_URL+'/login',{'username': username, 'password': password});
+            const checkLogin = await axios.post(baseUrl+'/login',{'username': username, 'password': password});
             if(checkLogin.data.data.active)
             {
-                //window.localStorage.setItem("Login", true);
+                window.localStorage.setItem("userData", JSON.stringify(checkLogin.data.data));
                 window.location.href = '/home'
+
+                
             }
             else
             {

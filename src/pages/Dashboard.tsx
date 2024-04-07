@@ -8,8 +8,8 @@ import { Network } from '@capacitor/network';
 import { addCircleOutline } from 'ionicons/icons';
 
 const Dashboard: React.FC = () => {
-
-  
+    const baseUrl = "http://localhost:5001";
+    // const baseUrl = "https://ganpati-node-service.onrender.com";
     const [scroller1, setScroller1] = useState([]);
     const [scroller2, setScroller2] = useState([]);
     const [scroller3, setScroller3] = useState([]);
@@ -38,7 +38,7 @@ const Dashboard: React.FC = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get(process.env.SERVER_URL+'/products?limit=10&vendor=Ganpatiwala.com&random=true');
+          const response = await axios.get(baseUrl+'/products?limit=10&vendor=Ganpatiwala.com&random=true');
           setScroller1(response.data.products);
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -47,7 +47,7 @@ const Dashboard: React.FC = () => {
 
       const fetchData1 = async () => {
         try {
-          const response = await axios.get(process.env.SERVER_URL+'/products?limit=10&vendor=Ganpatiwala.com&tags=Chaturbhuj&random=true');
+          const response = await axios.get(baseUrl+'/products?limit=10&vendor=Ganpatiwala.com&tags=Chaturbhuj&random=true');
           setScroller2(response.data.products);
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -56,7 +56,7 @@ const Dashboard: React.FC = () => {
 
       const fetchData2 = async () => {
         try {
-          const response = await axios.get(process.env.SERVER_URL+'/decorations?limit=3&random=true');
+          const response = await axios.get(baseUrl+'/decorations?limit=3&random=true');
           setScroller3(response.data.decorations);
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -112,21 +112,21 @@ const Dashboard: React.FC = () => {
 
         <div id="scroller1">
           {scroller1.map(product => (
-           <div className="product-card" style={{ "aspect-ratio": "1/2" }}>
+           <div className="product-card" style={{ "aspectRatio": "1/2" }}>
            <img src={product.image.src} alt={product.title} />
-           <div className="card-content" style={{"font-size": "10pt"}}>
-               <p style={{"text-wrap": "balance"}}>{product.title}</p>
-               <p style={{"text-wrap": "balance"}}>Category: {product.tags}
+           <div className="card-content" style={{"fontSize": "10pt"}}>
+               <p style={{"textWrap": "balance"}}>{product.title}</p>
+               <p style={{"textWrap": "balance"}}>Category: {product.tags}
                </p>
-               <p style={{"text-wrap": "balance"}} className="card-price">{product.variants.price}</p>
+               <p style={{"textWrap": "balance"}} className="card-price">{product.variants.price}</p>
            </div>
          </div>
             // You can display other product details as needed
           ))}
-          <div className="product-card" style={{ "aspect-ratio": "1/2" }}>
+          <div className="product-card" style={{ "aspectRatio": "1/2" }}>
            
            <a href="/tab1"><div className="card-content">
-               <p style={{"text-wrap": "balance"}}>View All</p>
+               <p style={{"textWrap": "balance"}}>View All</p>
            </div>
            </a>
          </div>
@@ -183,22 +183,22 @@ const Dashboard: React.FC = () => {
             </div>
           </div> */}
           {scroller2.map(product => (
-           <div className="product-card" style={{ "aspect-ratio": "1/2" }}>
+           <div className="product-card" style={{ "aspectRatio": "1/2" }}>
            <img src={product.image.src} alt={product.title} />
-           <div className="card-content" style={{"font-size": "10pt"}}>
-               <p style={{"text-wrap": "balance"}}>{product.title}</p>
-               <p style={{"text-wrap": "balance"}}>Category: {product.tags}
+           <div className="card-content" style={{"fontSize": "10pt"}}>
+               <p style={{"textWrap": "balance"}}>{product.title}</p>
+               <p style={{"textWrap": "balance"}}>Category: {product.tags}
                </p>
-               <p style={{"text-wrap": "balance"}} className="card-price">{product.variants.price}</p>
+               <p style={{"textWrap": "balance"}} className="card-price">{product.variants.price}</p>
            </div>
          </div>
             // You can display other product details as needed
           ))}
-          <div className="product-card" style={{ "aspect-ratio": "1/2" }}>
+          <div className="product-card" style={{ "aspectRatio": "1/2" }}>
            
            <a href="/tab1">
            <div className="card-content">
-               <p style={{"text-wrap": "balance"}}>View All</p>
+               <p style={{"textWrap": "balance"}}>View All</p>
            </div>
            </a>
          </div>
@@ -231,22 +231,22 @@ const Dashboard: React.FC = () => {
             </div>
           </div> */}
           {scroller3.map(product => (
-           <div className="product-card" style={{ "aspect-ratio": "1/2" }}>
+           <div className="product-card" style={{ "aspectRatio": "1/2" }}>
            <img src={product.image} alt={product.name} />
-           <div className="card-content" style={{"font-size": "10pt"}}>
-               <p style={{"text-wrap": "balance"}}>{product.name}</p>
-               <p style={{"text-wrap": "balance"}}>Category: {product.tags}
+           <div className="card-content" style={{"fontSize": "10pt"}}>
+               <p style={{"textWrap": "balance"}}>{product.name}</p>
+               <p style={{"textWrap": "balance"}}>Category: {product.tags}
                </p>
-               <p style={{"text-wrap": "balance"}} className="card-price">{product.price}</p>
+               <p style={{"textWrap": "balance"}} className="card-price">{product.price}</p>
            </div>
          </div>
             // You can display other product details as needed
           ))}
-          <div className="product-card" style={{ "aspect-ratio": "1/2" }}>
+          <div className="product-card" style={{ "aspectRatio": "1/2" }}>
            
            <a href="/tab2">
             <div className="card-content">
-               <p style={{"text-wrap": "balance"}}>View All</p>
+               <p style={{"textWrap": "balance"}}>View All</p>
            </div>
            </a>
          </div>

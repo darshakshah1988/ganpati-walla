@@ -3,13 +3,42 @@ import ExploreContainer from '../components/ExploreContainer';
 import './home.css';
 import { addCircleOutline } from 'ionicons/icons';
 import './vdashboard.css';
+import { useEffect, useState } from 'react';
+
+
+
+
 const VDashboard: React.FC = () => {
 
-  const counts = {
-    "USER_POSTED_PHOTOS": 4,
-    "USER_PLAN_PHOTOS_LIMIT":10,
-    "USER_PLAN_NAME": "BASIC" 
+
+
+  const [userData, setUserData] = useState();
+  const [counts, setCounts] = useState({
+    "USER_POSTED_PHOTOS": 0,
+    "USER_PLAN_PHOTOS_LIMIT": 12,
+    "USER_PLAN_NAME":  "Basic"
+  })
+   
+  
+  
+  const getUserData = () => {
+    let d = window.localStorage.getItem("userData");
+    const obj = JSON.parse(d);
+    setUserData(obj);
+    setCounts({
+    "USER_POSTED_PHOTOS": 0,
+    "USER_PLAN_PHOTOS_LIMIT": obj.subscriptionPlan.limit,
+    "USER_PLAN_NAME":  obj.subscriptionPlan.plan
+    })
   }
+
+  useEffect(() => {
+    getUserData();
+    console.log(counts);
+  },[getUserData])
+
+  
+
   return (
     <>
     <IonPage>

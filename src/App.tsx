@@ -43,6 +43,8 @@ import VDashboard from './pages/VDashboard'
 import Vphotos from './pages/Vphotos';
 import Vprofile from './pages/Vprofile';
 import Plans from './pages/Plans';
+import Signup from './components/signup';
+import uSignup from './components/signupuser';
 
 setupIonicReact();
 
@@ -60,6 +62,8 @@ const App: React.FC = () => {
           <Route exact path="/agent-photos" component={Vphotos} />
           <Route exact path="/agent-profile" component={Vprofile} />
           <Route exact path="/plans" component={Plans} />
+          <Route exact path="/vregister" component={Signup} />
+          <Route exact path="/register" component={uSignup} />
         </IonRouterOutlet>
       </IonReactRouter>    
   </IonApp>

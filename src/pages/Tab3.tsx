@@ -1,10 +1,36 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Tab3.css';
 import './profile.css';
+import { useEffect, useState } from 'react';
+
 const Tab3: React.FC = () => {
+  const [userData,setUserData] = useState({
+    "name": "darshak",
+    "email": "iamdarshak88@gmail.com",
+    "mobile": "9998836724",
+    "location": "naroda, Ahmedabad, Gujarat"
+  });
+
+  const setUserProfile = (q: any) => {
+    const data = {
+      "name": q.name,
+      "email": q.email,
+      "mobile": q.mobile,
+      "location": q.city +","+ q.state +"-"+ q.pincode
+    }
+    console.log(data);
+    setUserData(data);
+  }
+
+  useEffect(()=> {
+    var u = window.localStorage.getItem("userData");
+    const q = JSON.parse(u);
+    console.log(q);
+    setUserProfile(q);
+  },[]);
 
   const handleLogout = () => {
-    window.localStorage.setItem("Login",false);
+    window.localStorage.setItem("userData","NULL");
     window.location.href="/login"
   }
   return (
@@ -16,9 +42,9 @@ const Tab3: React.FC = () => {
       <main>
         <div className="profile">
           <img src="/user_profile.png" alt="Profile Picture" />
-            <h2>Kautuk Shah</h2>
-            <p>Xyz company ltd.</p>
-            <p>Location: Mumbai, India</p>
+            
+            <p>{userData.email}</p>
+            
             <button onClick={handleLogout}>Logout</button>
         </div>
   

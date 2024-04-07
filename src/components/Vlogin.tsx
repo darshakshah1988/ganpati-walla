@@ -19,7 +19,7 @@ const Vlogin: React.FC = () => {
             console.log(checkLogin);
             if(checkLogin.data.data.active)
             {
-                window.localStorage.setItem("vLogin", true);
+                window.localStorage.setItem("userData", JSON.stringify(checkLogin.data.data));
                 window.location.href = '/agent-home'
             }
             else

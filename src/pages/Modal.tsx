@@ -11,7 +11,7 @@ interface ModalProps {
   productName: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, productName }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, productName, vendorName }) => {
 
   const [name, setName] = useState<string>('');
   const [message, setMessage] = useState<string>('');
@@ -94,6 +94,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, productName }) => {
             rows={8}
           />
         </IonItem>
+
+        <b><h5>Please be advised that Vendor {vendorName} will be sent a WhatsApp message containing your Name, Location, Mobile number, and details of the product you're interested in.</h5></b>
 
         <IonButton expand="full" onClick={handleSubmit}>
           Submit
