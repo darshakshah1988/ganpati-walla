@@ -1,0 +1,13 @@
+.pagebody {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Make body full height of viewport */
+    margin: 0; /* Remove default margin */
+}
+.content {
+    text-align: center; /* Center-align text */
+}
+.content h1 {
+    color: orange;
+}

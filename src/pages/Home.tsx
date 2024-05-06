@@ -8,11 +8,13 @@ import { addCircleOutline, home, person  } from 'ionicons/icons';
 import Login from '../components/Login';
 import Offline from './Offline'
 import { IonReactRouter } from '@ionic/react-router';
-import { Route, Redirect } from 'react-router';
+import { Route, Redirect, Switch } from 'react-router';
 import Tab1 from './Tab1';
 import Tab2 from './Tab2'
 import Tab3 from './Tab3'
 import Dashboard from './Dashboard'
+import Terms from './Terms';
+import Vlogin from '../components/Vlogin';
 
 
 const Home: React.FC = () => {
@@ -20,10 +22,7 @@ const Home: React.FC = () => {
   // const baseUrl = "https://ganpati-node-service.onrender.com";
     
   
-    const [scroller1, setScroller1] = useState([]);
-    const [scroller2, setScroller2] = useState([]);
-    const [scroller3, setScroller3] = useState([]);
-
+    
     const [online, setOnline] = useState(true);
     // const existLogin = window.localStorage.getItem("Login");
 
@@ -32,18 +31,7 @@ const Home: React.FC = () => {
       setOnline(status.connected);
     };
 
-    // const checkLoginIsValid = async () => {
-     
-       
-    //     if(existLogin)
-    //     {
-            
-    //     }
-    //     else
-    //     {
-    //         window.location.href = "/login";
-    //     }
-    // }
+    
 
     useEffect(() => {
       const handler = Network.addListener('networkStatusChange', (status) => {
@@ -60,38 +48,7 @@ const Home: React.FC = () => {
       checkNetworkStatus();
     }, []);
   
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(baseUrl+'/products?limit=10&vendor=Ganpatiwala.com&random=true');
-          setScroller1(response.data.products);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-
-      const fetchData1 = async () => {
-        try {
-          const response = await axios.get(baseUrl+'/products?limit=10&vendor=Ganpatiwala.com&tags=Chaturbhuj&random=true');
-          setScroller2(response.data.products);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-
-      const fetchData2 = async () => {
-        try {
-          const response = await axios.get(baseUrl+'/decorations?limit=3&random=true');
-          setScroller3(response.data.decorations);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-  
-      fetchData();
-      fetchData1();
-      fetchData2();
-    }, []);
+   
 
   
 
@@ -100,24 +57,15 @@ const Home: React.FC = () => {
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route exact path="/tab3">
-            <Tab3 />
-          </Route>
-          <Route exact path="/home">
-            <Dashboard />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/offline">
-            <Offline />
-          </Route>
+          <Switch>
+          <Route exact={true} path="/tab1" render={() => <Tab1 />} />
+          <Route exact={true} path="/tab2" render={() => <Tab2 />} />
+          <Route exact={true} path="/home" render={() => <Dashboard />} />
+          <Route exact={true} path="/login" render={() => <Login />} />            
+          <Route exact={true} path="/offline" render={() => <Offline />} />
+          <Route exact={true} path="/tab3" render={() => <Tab3 />} />
+          <Route exact={true} path="/vendor-login" render={() => <Vlogin />}/>          
+          </Switch>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">
@@ -125,16 +73,16 @@ const Home: React.FC = () => {
             <IonLabel>Home</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab1" href="/tab1">
-            <img src="/idols.svg" className="icon" />
-            <IonLabel>Idols</IonLabel>
+            <img src="/category.png" className="icon" />
+            <IonLabel>Categories</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <img src="/decoration_menu_icon.svg" className="icon" />
-            <IonLabel>Decorations</IonLabel>
+          <IonTabButton tab="tab2" href="/vendor-login">
+            <img src="/vendor.png" className="icon" />
+            <IonLabel>Vendor</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon aria-hidden="true" icon={person} />
-            <IonLabel>Me</IonLabel>
+            <IonLabel>User</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

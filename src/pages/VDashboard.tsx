@@ -22,8 +22,8 @@ const VDashboard: React.FC = () => {
   
   
   const getUserData = () => {
-    let d = window.localStorage.getItem("userData");
-    const obj = JSON.parse(d);
+   let d = window.localStorage.getItem("userData");
+   const obj = JSON.parse(d);
     setUserData(obj);
     setCounts({
     "USER_POSTED_PHOTOS": 0,
@@ -35,7 +35,7 @@ const VDashboard: React.FC = () => {
   useEffect(() => {
     getUserData();
     console.log(counts);
-  },[getUserData])
+  },[])
 
   
 
@@ -60,7 +60,8 @@ const VDashboard: React.FC = () => {
                 <div className="todo"><i className="fa fa-files-o"></i><span>{counts.USER_PLAN_PHOTOS_LIMIT}</span>
                 <p>Plan Limit</p>
                 <div className="line"></div>
-                <h4><a href="/plans">Upgrade</a></h4>
+                <h4><a href="/plans">Topup</a></h4>
+                <p>Lorem Ipsum is simply dummy text</p>
                 </div>
             </div>
             <div className="fullWidth">

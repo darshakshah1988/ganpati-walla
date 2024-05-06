@@ -1,0 +1,52 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .profile-options {
+    width: 100%;
+    height: calc(100vh - 40px); /* Adjusted to accommodate the social media icons */
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  .profile-options ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .profile-options ul li {
+    margin-bottom: 10px;
+  }
+  
+  .profile-options ul li a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .profile-options .nested {
+    display: block; /* Nested lists are displayed by default */
+    margin-left: 20px;
+  }
+  
+  .social-media-icons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .social-media-icons a {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .social-media-icons img {
+    width: 30px;
+    height: 30px;
+  }
+  

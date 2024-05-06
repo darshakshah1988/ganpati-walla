@@ -95,8 +95,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, productName, vendorName 
           />
         </IonItem>
 
-        <b><h5>Please be advised that Vendor {vendorName} will be sent a WhatsApp message containing your Name, Location, Mobile number, and details of the product you're interested in.</h5></b>
-
+        <h4>This is to inform you that Vendor, city will receive your Name, city, Mobile number and Interested product details on their contact number.</h4>
         <IonButton expand="full" onClick={handleSubmit}>
           Submit
         </IonButton>

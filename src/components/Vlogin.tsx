@@ -7,14 +7,14 @@ const Vlogin: React.FC = () => {
     const [password, setPassword] = useState('');
     const existLogin = window.localStorage.getItem("vLogin");
     const handleAgentLogin = async () => {
-        
+        console.log(existLogin);
        
-        if(existLogin)
-        {
-            window.location.href = '/agent-home'
-        }
-        else
-        {
+        // if(existLogin)
+        // {
+        //     window.location.href = '/agent-home'
+        // }
+        // else
+        // {
             const checkLogin = await axios.post('http://localhost:5001/vlogin',{'username': username, 'password': password, 'agent': true});
             console.log(checkLogin);
             if(checkLogin.data.data.active)
@@ -26,7 +26,7 @@ const Vlogin: React.FC = () => {
             {
                 alert("Invalid Login !");
             }
-        }
+        // }
     }
     return (
         <>
@@ -42,7 +42,7 @@ const Vlogin: React.FC = () => {
                 <input type="password" id="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
             </div>
             <div className="input-container">
-                <button type="submit" onClick={handleAgentLogin}>LOGIN</button>
+                <button type="button" onClick={handleAgentLogin}>LOGIN</button>
             </div>
             <p><a href="/vregister">Create Account</a></p>
             <p><a href="/login">Login as User</a></p>

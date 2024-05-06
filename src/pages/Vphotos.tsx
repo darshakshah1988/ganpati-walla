@@ -20,12 +20,15 @@ const Vphotos: React.FC = () => {
   const [subscriptionId, setSubscriptionId] = useState();
   const [userId,setUserId] = useState('');
   const [message,setMessage] = useState('');
-  const [preview,setPreview] = useState('');
+  const [preview,setPreview] = useState<any>('');
   const baseUrl = "http://localhost:5001";
+  
   const handleImageInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files && event.target.files[0];
     if (file) {
-      //console.log(file);
+      console.log(file);
+      const objectUrl = URL.createObjectURL(file);
+      setPreview(objectUrl);
       setSelectedImage(file);
     }
   };
@@ -82,33 +85,37 @@ return (
   <IonContent>
     {message?<img src={preview} />:""}
         <IonItem>
+        <input type="file" name="file" accept="image/*" onChange={handleImageInputChange} />
+        </IonItem>
+        <IonItem>
+          Preview : 
+          <img src={preview} />
+        </IonItem>
+        {/* <IonItem>
           <IonLabel position="floating">Product Name</IonLabel>
           <IonInput value={productName} onIonChange={(e) => setProductName(e.detail.value!)} />
-        </IonItem>
-        <IonItem>
+        </IonItem> */}
+        {/* <IonItem>
           <IonLabel position="floating">Product Dimensions</IonLabel>
           <IonInput value={productDimensions} onIonChange={(e) => setProductDimensions(e.detail.value!)} />
-        </IonItem>
-        <IonItem>
+        </IonItem> */}
+        {/* <IonItem>
           <IonLabel position="floating">Product Description (Max 100 characters)</IonLabel>
           <IonInput value={productDescription} onIonChange={(e) => setProductDescription(e.detail.value!)} />
-        </IonItem>
+        </IonItem> */}
         <IonItem>
-          <IonLabel>Category</IonLabel>
+          <IonLabel>Product Name</IonLabel>
           <IonSelect value={category} onIonChange={(e) => setCategory(e.detail.value as number)}>
             {[...Array(10)].map((_, i) => (
               <IonSelectOption key={i} value={i + 1}>{i + 1}</IonSelectOption>
             ))}
           </IonSelect>
         </IonItem>
-        <IonItem>
-        <input type="file" name="file" accept="image/*" onChange={handleImageInputChange} />
-        </IonItem>
-        <IonItem>
+        {/* <IonItem>
           <IonLabel position="floating">Price</IonLabel>
           <IonInput type="number" value={price} onIonChange={(e) => setPrice(parseFloat(e.detail.value!))} />
-        </IonItem>
-        <IonItem>
+        </IonItem> */}
+        {/* <IonItem>
         <IonLabel>State</IonLabel>
         <IonSelect value={stet} onIonChange={(e) => setState(e.detail.value!)}>
           <IonSelectOption value="Maharashtra">Maharashtra</IonSelectOption>
@@ -125,7 +132,7 @@ return (
         <IonItem>
           <IonLabel position="floating">Pincode</IonLabel>
           <IonInput value={pincode} onIonChange={(e) => setPincode(e.detail.value!)} />
-        </IonItem>
+        </IonItem> */}
         <IonButton expand="block" onClick={handleSubmit}>Submit</IonButton>
             {message}
       </IonContent>

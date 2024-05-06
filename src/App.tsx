@@ -45,6 +45,9 @@ import Vprofile from './pages/Vprofile';
 import Plans from './pages/Plans';
 import Signup from './components/signup';
 import uSignup from './components/signupuser';
+import Splash from './pages/Splash';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
 
 setupIonicReact();
 
@@ -54,16 +57,19 @@ const App: React.FC = () => {
   <IonApp>
     <IonReactRouter>
         <IonRouterOutlet>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/vendor-login" component={Vlogin} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/" render={() => <Redirect to="/login" />} />
-          <Route exact path="/agent-home" component={VDashboard} />
-          <Route exact path="/agent-photos" component={Vphotos} />
-          <Route exact path="/agent-profile" component={Vprofile} />
-          <Route exact path="/plans" component={Plans} />
-          <Route exact path="/vregister" component={Signup} />
-          <Route exact path="/register" component={uSignup} />
+          <Redirect exact path="/" to="/flash" />
+          <Route exact={true} path="/login" render={() => <Login />} />
+          <Route exact={true} path="/vendor-login" render={() => <Vlogin />}/>
+          <Route exact={true} path="/home"  render={() => <Home />}/>
+          <Route exact={true} path="/flash"  render={() => <Splash />}/>
+          <Route exact={true} path="/agent-home"  render={() => <VDashboard />} />
+          <Route exact={true} path="/agent-photos"  render={() => <Vphotos />}/>
+          <Route exact={true} path="/agent-profile"  render={() => <Vprofile />} />
+          <Route exact={true} path="/plans"  render={() => <Plans />} />
+          <Route exact={true} path="/vregister"  render={() => <Signup />} />
+          <Route exact={true} path="/register"  render={() => <uSignup />} />
+          <Route exact={true} path="/tab3/terms"  render={() => <Terms />}/>
+          <Route exact={true} path="/tab3/privacy"  render={() => <Privacy />}/>
         </IonRouterOutlet>
       </IonReactRouter>    
   </IonApp>

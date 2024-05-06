@@ -15,10 +15,12 @@ return (
             <div className="fullWidth">
                 <div className="todo"><i className="fa fa-clock-o"></i><span>Basic</span>
                 <p>Plan - 500 INR</p>
-                <div className="line"></div>
-                <h4><a href="/agent-profile">Upgrade</a></h4>
+                <div className="line">total space = 25 photos</div>
+                <div className="line">plan validity 1 year from plan purchase date.</div>
+                <div className="line">Press topup button to buy additional 25 photo space.</div>
+                <h4><a href="/agent-profile">Topup</a></h4>
                 </div>
-                <div className="todo"><i className="fa fa-clock-o"></i><span style={{"fontSize": "36pt"}}>Pro</span>
+                {/* <div className="todo"><i className="fa fa-clock-o"></i><span style={{"fontSize": "36pt"}}>Pro</span>
                 <p>Plan - 900 INR</p>
                 <div className="line"></div>
                 <h4><a href="/agent-profile">Upgrade</a></h4>
@@ -27,7 +29,7 @@ return (
                 <p>Plan - 1500 INR</p>
                 <div className="line"></div>
                 <h4><a href="/agent-profile">Upgrade</a></h4>
-                </div>
+                </div> */}
             </div>
             </div>
             

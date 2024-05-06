@@ -15,7 +15,7 @@ const ProductList = ({ product, onButtonClick }) => {
             <div className="product-name">{product.title}</div>
             {/* <div className="product-price">{product.variants[0].price}</div> */}
             <div className="product-type">Type: {product.tags}</div>
-            <IonButton id="open-modal" expand="block" onClick={onButtonClick}><img src='/whatsapp.svg' style={{"width": "30px", "height": "30px"}} />Send Inquiry</IonButton>
+            <button id="open-modal" className="Mybutton" expand="block" onClick={onButtonClick}><img src='/whatsapp.svg' style={{"width": "15px", "height": "15px"}} />Send Inquiry</button>
             </div>
         </div>
     )
